@@ -1,3 +1,7 @@
+# API Solid Curso
+
+Parte do curso de Node da Rocketseat, focado no aprendizado de desenvolvimento de APIs utilizando os princípios SOLID e testes.
+
 # App
 
 GymPass Style app.
