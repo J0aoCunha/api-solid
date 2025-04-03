@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import {  hash } from "bcryptjs";
 import { InMemoryUserRepository } from "@/repositories/in-memory/in-memory-users-repository";
-import { GetUserProfileUseCase } from "./get-user-profile";
-import { ResourceNotFoundExists } from "./errors/resource-not-found-error";
+import { GetUserProfileUseCase } from "../get-user-profile";
+import { ResourceNotFoundExists } from "../errors/resource-not-found-error";
 
 let sut: GetUserProfileUseCase
 let usersRepository: InMemoryUserRepository

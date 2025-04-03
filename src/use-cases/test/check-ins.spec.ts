@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-ins-repository";
-import { CheckInUseCase } from "./check-ins";
+import { CheckInUseCase } from "../check-ins";
 import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-repository";
-import { MaxNumberOfCheckInsError } from "./errors/max-number-of-check-ins-error";
-import { MaxDistanceError } from "./errors/max-distance-error";
+import { MaxNumberOfCheckInsError } from "../errors/max-number-of-check-ins-error";
+import { MaxDistanceError } from "../errors/max-distance-error";
 
 let checkInRepository: InMemoryCheckInsRepository
 let gymRepository: InMemoryGymsRepository
@@ -98,7 +98,7 @@ describe("Check-ins Use Case", ()=>{
         })
 
         
-        expect(()=>sut.execute({
+        await expect(()=>sut.execute({
             gymId:'gym-02',
             userId:'user-01',
             userLatitude: -20.2523861,

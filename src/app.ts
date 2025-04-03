@@ -1,11 +1,18 @@
 import fastify from "fastify";
-import { appRoutes } from "./http/routes";
 import { ZodError } from "zod";
 import { env } from "./env";
+import fastifyJwt from "@fastify/jwt";
+import { userRoutes } from "./http/controllers/users/routes";
+import { gymsRoutes } from "./http/controllers/gyms/routes";
+import { checkInsRoutes } from "./http/controllers/check-ins/routes";
 
 export const app = fastify();
-
-app.register(appRoutes)
+app.register(fastifyJwt, {
+    secret: env.JWT_SECRET,
+})
+app.register(userRoutes)
+app.register(gymsRoutes)
+app.register(checkInsRoutes)
 
 app.setErrorHandler((error, _, reply )=>{
     if(error instanceof ZodError){
@@ -15,7 +22,7 @@ app.setErrorHandler((error, _, reply )=>{
         })
     }
 
-    if(env.NODE_ENV != "production"){
+    if(env.NODE_ENV != "production"){ 
         console.error(error)
     }else{
         //TODO: here we should log to an external tool like dataDog/ NewRelic/ Sentry
