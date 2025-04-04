@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, it} from "vitest";
 import request from "supertest"
 import { app } from "@/app";
-import { CreateAndAuthenticateUser } from "@/utils/test/create-and-authenticate-user";
+import { CreateAndAuthenticateUser } from "@/utils/create-and-authenticate-user";
 
 describe("Profile e2e", ()=>{
 
