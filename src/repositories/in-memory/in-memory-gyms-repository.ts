@@ -40,7 +40,7 @@ import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coor
             return this.items.filter(item => {
                 const distance = getDistanceBetweenCoordinates(
                     {latitude: item.latitude.toNumber(), longitude: item.longitute.toNumber()},
-                    {latitude: params.latitude, longitude: params.longitude}
+                    {latitude: params.latitude, longitude: params.longitute}
                 )
 
                 return distance < 10

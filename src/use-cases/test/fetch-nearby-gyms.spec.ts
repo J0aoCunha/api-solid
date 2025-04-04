@@ -29,13 +29,13 @@ describe("fetch nearby gyms Use Case", ()=>{
         })
 
         const { gyms } = await sut.execute({
-            userLongitude: -40.2941075,
-            userLatitude: -20.3093553,
+            userLongitude: -40.2701668,
+            userLatitude: -20.1669944,
         })
 
         expect(gyms).toHaveLength(1)
         expect(gyms).toEqual([
-            expect.objectContaining({title:"near gym"}),
+            expect.objectContaining({title:"far gym"}),
         ])
     })
 })
