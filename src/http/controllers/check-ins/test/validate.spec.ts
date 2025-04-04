@@ -15,7 +15,7 @@ describe("Validate check in gym e2e", ()=>{
     })
 
     it("should be able to validate a check-in", async ()=>{
-        const { token } = await CreateAndAuthenticateUser(app)
+        const { token } = await CreateAndAuthenticateUser(app, "ADMIN")
 
         const user = await prisma.user.findFirstOrThrow()
 
